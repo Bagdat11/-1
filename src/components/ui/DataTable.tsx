@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
 
 export interface Column<T> {
-  key: keyof T & string
+  key: string
   header: string
   render?: (row: T) => React.ReactNode
 }
@@ -24,7 +24,7 @@ export function DataTable<T extends object>({
   const { t } = useTranslation()
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
-  const [sortKey, setSortKey] = useState<(keyof T & string) | null>(null)
+  const [sortKey, setSortKey] = useState<string | null>(null)
   const [sortAsc, setSortAsc] = useState(true)
 
   const filtered = useMemo(() => {
@@ -37,8 +37,8 @@ export function DataTable<T extends object>({
     }
     if (sortKey) {
       rows.sort((a, b) => {
-        const av = String(a[sortKey] ?? '')
-        const bv = String(b[sortKey] ?? '')
+        const av = String((a as Record<string, unknown>)[sortKey] ?? '')
+        const bv = String((b as Record<string, unknown>)[sortKey] ?? '')
         return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av)
       })
     }
@@ -51,7 +51,7 @@ export function DataTable<T extends object>({
   const from = filtered.length === 0 ? 0 : (currentPage - 1) * pageSize + 1
   const to = Math.min(currentPage * pageSize, filtered.length)
 
-  const toggleSort = (key: keyof T & string) => {
+  const toggleSort = (key: string) => {
     if (sortKey === key) setSortAsc(!sortAsc)
     else {
       setSortKey(key)
