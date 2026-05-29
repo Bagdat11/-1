@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports & Analytics — QazTU Admin</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body data-require-role="admin">
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand"><div class="sidebar-logo">Q</div><span>QazTU</span></div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="users.html">Users</a>
+        <a href="students.html">Students</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="faculties.html">Faculties</a>
+        <a href="specialties.html">Specialties</a>
+        <a href="subjects.html">Subjects</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="calendar.html">Academic Calendar</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="reports.html" class="is-active">Reports & Analytics</a>
+        <a href="settings.html">System Settings</a>
+      </nav>
+      <div class="sidebar-footer"><button type="button" data-logout data-i18n="logout">Log out</button></div>
+    </aside>
+    <div class="sidebar-overlay"></div>
+    <div class="main-wrap">
+      <header class="top-header">
+        <div class="header-left">
+          <button type="button" class="menu-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+          <h1 class="page-title">Reports & Analytics</h1>
+        </div>
+        <div class="header-right">
+          <select id="headerLang" class="lang-select"><option value="en">EN</option><option value="ru">RU</option><option value="kz">KZ</option></select>
+          <div class="user-menu">
+            <div class="user-trigger" data-dropdown>
+              <img src="https://i.pravatar.cc/150?u=askar" alt="" class="user-avatar" width="40" height="40">
+              <div class="user-info"><span class="name" data-user-name>Askar Bekmukhanov</span><span class="role" data-user-role>System Administrator</span></div>
+            </div>
+            <div class="dropdown"><a href="settings.html">Profile</a><button type="button" data-logout>Log out</button></div>
+          </div>
+        </div>
+      </header>
+      <main class="main-content">
+        <div class="demo-banner">Demo mode — data is for display only.</div>
+        <div class="page-toolbar">
+          <h2>Reports & Analytics</h2>
+          <button type="button" class="btn btn-primary" id="addRecordBtn">+ Add New</button>
+        </div>
+        <div class="card"><table class="data-table"><thead><tr><th>Report</th><th>Generated</th><th>Format</th></tr></thead><tbody><tr><td>Enrollment Summary</td><td>May 28, 2025</td><td>PDF</td></tr><tr><td>Faculty Performance</td><td>May 27, 2025</td><td>XLSX</td></tr></tbody></table></div>
+        <form id="addRecordForm" class="sr-only"><input name="dummy" required></form>
+      </main>
+    </div>
+  </div>
+  <script src="../js/auth.js"></script>
+  <script src="../js/page-guard.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/ui.js"></script>
+</body>
+</html>

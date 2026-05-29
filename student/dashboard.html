@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard — QazTU</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body data-require-role="student">
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand"><div class="sidebar-logo">Q</div><span>QazTU</span></div>
+      <nav class="sidebar-nav"><a href="dashboard.html" class="is-active">Dashboard</a>
+        <a href="courses.html">My Courses</a>
+        <a href="grades.html">Grades</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="profile.html">Profile</a></nav>
+      <div class="sidebar-footer"><button type="button" data-logout data-i18n="logout">Log out</button></div>
+    </aside>
+    <div class="sidebar-overlay"></div>
+    <div class="main-wrap">
+      <header class="top-header">
+        <div class="header-left">
+          <button type="button" class="menu-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+          <h1 class="page-title" data-i18n="studentDashboard">Student Dashboard</h1>
+        </div>
+        <div class="header-right">
+          <select id="headerLang" class="lang-select"><option value="en">EN</option><option value="ru">RU</option><option value="kz">KZ</option></select>
+          <div class="user-menu">
+            <div class="user-trigger" data-dropdown>
+              <img src="https://i.pravatar.cc/150?u=student" alt="" class="user-avatar" width="40" height="40">
+              <div class="user-info"><span class="name" data-user-name>Name</span><span class="role" data-user-role>Role</span></div>
+            </div>
+            <div class="dropdown"><a href="profile.html">Profile</a><button type="button" data-logout>Log out</button></div>
+          </div>
+        </div>
+      </header>
+      <main class="main-content">
+        <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="stat-card"><div class="stat-icon blue"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13"/></svg></div><div class="stat-value">6</div><div class="stat-label">Active Courses</div></div>
+          <div class="stat-card"><div class="stat-icon green"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="stat-value">3.8</div><div class="stat-label">Current GPA</div></div>
+          <div class="stat-card"><div class="stat-icon yellow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="stat-value">2</div><div class="stat-label">Pending Assignments</div></div>
+          <div class="stat-card"><div class="stat-icon purple"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div><div class="stat-value">24</div><div class="stat-label">Credits This Semester</div></div>
+        </div>
+        <div class="bottom-row" style="grid-template-columns: 1fr 1fr;">
+          <div class="card"><div class="card-header"><h3>Today's Schedule</h3><a href="schedule.html">View all</a></div>
+            <ul class="announce-list"><li><div class="announce-icon blue"></div><div class="announce-body"><h4>Calculus II</h4><p>09:00 · Room A-201</p></div></li>
+            <li><div class="announce-icon green"></div><div class="announce-body"><h4>Algorithms</h4><p>11:00 · Room B-105</p></div></li></ul>
+          </div>
+          <div class="card"><div class="card-header"><h3>Quick Actions</h3></div>
+            <div class="quick-actions" style="grid-template-columns: repeat(2, 1fr);">
+              <a href="courses.html" class="quick-action-btn qa-blue"><span class="qa-icon"></span>My Courses</a>
+              <a href="grades.html" class="quick-action-btn qa-green"><span class="qa-icon"></span>View Grades</a>
+              <a href="schedule.html" class="quick-action-btn qa-purple"><span class="qa-icon"></span>Schedule</a>
+              <a href="announcements.html" class="quick-action-btn qa-orange"><span class="qa-icon"></span>Announcements</a>
+            </div>
+          </div>
+        </div></main>
+    </div>
+  </div>
+  <script src="../js/auth.js"></script>
+  <script src="../js/page-guard.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/ui.js"></script>
+</body>
+</html>
