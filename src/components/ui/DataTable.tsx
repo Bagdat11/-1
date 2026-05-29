@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
 
 export interface Column<T> {
-  key: string
+  key: keyof T & string
   header: string
   render?: (row: T) => React.ReactNode
 }
@@ -24,7 +24,7 @@ export function DataTable<T extends object>({
   const { t } = useTranslation()
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
-  const [sortKey, setSortKey] = useState<string | null>(null)
+  const [sortKey, setSortKey] = useState<(keyof T & string) | null>(null)
   const [sortAsc, setSortAsc] = useState(true)
 
   const filtered = useMemo(() => {
@@ -51,7 +51,7 @@ export function DataTable<T extends object>({
   const from = filtered.length === 0 ? 0 : (currentPage - 1) * pageSize + 1
   const to = Math.min(currentPage * pageSize, filtered.length)
 
-  const toggleSort = (key: string) => {
+  const toggleSort = (key: keyof T & string) => {
     if (sortKey === key) setSortAsc(!sortAsc)
     else {
       setSortKey(key)
